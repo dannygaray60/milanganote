@@ -10,10 +10,32 @@ config_version=5
 
 [application]
 
-config/name="MilangaNota"
+config/name="MilangaNote"
+config/version="0.1"
 run/main_scene="res://screens/start_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="MilangaNote"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Config="*res://src/config.gd"
+Vars="*res://src/vars.gd"
+Milangadata="*res://src/milangadata.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[input]
+
+ui_mouse_right={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [rendering]
 

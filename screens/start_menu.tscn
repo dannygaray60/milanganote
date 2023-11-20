@@ -20,8 +20,19 @@ offset_right = 428.0
 offset_bottom = 152.0
 text = "Nueva Milanga"
 
+[node name="WindowBlackRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.529412)
+
 [node name="WindowNewMilanga" type="Window" parent="."]
 unique_name_in_owner = true
+mode = 4
 title = "Ingrese nombre de Milanga"
 initial_position = 1
 size = Vector2i(400, 100)
@@ -52,5 +63,6 @@ layout_mode = 2
 text = "Crear"
 
 [connection signal="pressed" from="BtnCreateMilanga" to="." method="_on_btn_create_milanga_pressed"]
+[connection signal="about_to_popup" from="WindowNewMilanga" to="." method="_on_window_new_milanga_about_to_popup"]
 [connection signal="close_requested" from="WindowNewMilanga" to="." method="_on_window_new_milanga_close_requested"]
 [connection signal="pressed" from="WindowNewMilanga/MarginContainer/VBoxContainer/BtnMilangaCreate" to="." method="_on_btn_milanga_create_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://clpd6j7qnvl3t"]
+
+[ext_resource type="Script" path="res://src/graph_double_click_detect.gd" id="1_b7odo"]
+
+[node name="GraphDoubleClickDetect" type="Node"]
+script = ExtResource("1_b7odo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

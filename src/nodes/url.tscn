@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b63rq22tm0vm2"]
+
+[ext_resource type="Script" path="res://src/nodes/url.gd" id="1_e3ksp"]
+[ext_resource type="Texture2D" uid="uid://bp7kjvywgc1yo" path="res://assets/icons/triangle.png" id="2_ksll7"]
+[ext_resource type="Texture2D" uid="uid://dm76y6f7cqf4p" path="res://assets/icons/arrow_right.png" id="3_vq4o1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2h4p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.34902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="URL" type="GraphElement"]
+offset_right = 40.0
+offset_bottom = 40.0
+resizable = true
+script = ExtResource("1_e3ksp")
+
+[node name="ResizeIcon" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("2_ksll7")
+expand_mode = 5
+
+[node name="BorderPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2h4p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "https://..."
+expand_to_text_length = true
+
+[node name="BtnGo" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_vq4o1")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
+[connection signal="node_selected" from="." to="." method="_on_node_selected"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/BtnGo" to="." method="_on_btn_go_pressed"]

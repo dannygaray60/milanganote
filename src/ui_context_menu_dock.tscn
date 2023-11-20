@@ -1,0 +1,206 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3xy3aeanusw3"]
+
+[ext_resource type="Texture2D" uid="uid://bdxpe30765n8q" path="res://assets/icons/heading.png" id="1_wgtkh"]
+[ext_resource type="Script" path="res://src/ui_context_menu_dock.gd" id="1_yq1jj"]
+[ext_resource type="Texture2D" uid="uid://ctnwb440bu3h7" path="res://assets/icons/speech_bubble.png" id="2_0fjr5"]
+[ext_resource type="Texture2D" uid="uid://dm76y6f7cqf4p" path="res://assets/icons/arrow_right.png" id="2_v0tm2"]
+[ext_resource type="Texture2D" uid="uid://f456p2o4wdps" path="res://assets/icons/save.png" id="4_p1xlo"]
+[ext_resource type="Texture2D" uid="uid://bevdqyklovoce" path="res://assets/icons/arrow_left.png" id="5_1v6ac"]
+[ext_resource type="Texture2D" uid="uid://ddgbdkw2mymaa" path="res://assets/icons/web.png" id="5_3yhpr"]
+[ext_resource type="Texture2D" uid="uid://cwdue1xc7dpun" path="res://assets/icons/picture.png" id="5_11v6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mo7il"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.968627, 0, 0, 0.34902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(188, 0)
+offset_right = 188.0
+offset_bottom = 86.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 2
+script = ExtResource("1_yq1jj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="BtnDel" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Eliminar Nodo"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BtnDel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -96.0
+offset_right = 285.0
+offset_bottom = -25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mo7il")
+
+[node name="VBxDeleteNode" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="BtnDelete" type="Button" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Eliminar Nodo Seleccionado"
+
+[node name="ChkDelFile" type="CheckBox" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.596078)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.596078)
+button_pressed = true
+text = "Eliminar archivo adjunto"
+alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnAddNode" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Añadir nodo"
+icon = ExtResource("2_v0tm2")
+flat = true
+alignment = 2
+icon_alignment = 2
+expand_icon = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnAddNode"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 16.0
+offset_right = 176.0
+offset_bottom = 170.0
+grow_horizontal = 0
+
+[node name="BtnHeader" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Título"
+icon = ExtResource("1_wgtkh")
+expand_icon = true
+
+[node name="BtnText" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Texto"
+icon = ExtResource("2_0fjr5")
+expand_icon = true
+
+[node name="BtnImage" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Imagen"
+icon = ExtResource("5_11v6x")
+expand_icon = true
+
+[node name="BtnUrl" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Enlace"
+icon = ExtResource("5_3yhpr")
+expand_icon = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0.572549)
+layout_mode = 2
+theme_override_constants/line_spacing = -7
+theme_override_font_sizes/font_size = 13
+text = "Las imágenes se agregan arrastrando y soltando"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="BtnFile" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Archivo"
+icon = ExtResource("5_1v6ac")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnFile"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -189.0
+offset_top = 3.0
+offset_right = -17.0
+offset_bottom = 88.0
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Guardar"
+icon = ExtResource("4_p1xlo")
+expand_icon = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 15
+text = "Cerrar Milanga"
+expand_icon = true
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnHelp" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Ayuda"
+flat = true
+
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode/BtnDelete" to="." method="_on_btn_delete_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnHeader" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnHeader" to="." method="add_node" binds= [0, {}]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnText" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnText" to="." method="add_node" binds= [1, {}]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnImage" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnImage" to="." method="add_node" binds= [2, {}]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnUrl" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnUrl" to="." method="add_node" binds= [3, {}]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/Button" to="." method="_on_button_pressed"]

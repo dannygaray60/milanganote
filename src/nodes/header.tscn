@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqcvg317f1ndd"]
+
+[ext_resource type="Script" path="res://src/nodes/header.gd" id="1_v5olv"]
+[ext_resource type="PackedScene" uid="uid://clpd6j7qnvl3t" path="res://src/graph_double_click_detect.tscn" id="3_moaa8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cctyp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.34902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Header" type="GraphElement"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+script = ExtResource("1_v5olv")
+
+[node name="GraphDoubleClickDetect" parent="." instance=ExtResource("3_moaa8")]
+
+[node name="BorderPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cctyp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Header"
+placeholder_text = "Header"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+
+[node name="Label" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Header"
+
+[connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
+[connection signal="node_selected" from="." to="." method="_on_node_selected"]
+[connection signal="raise_request" from="." to="GraphDoubleClickDetect" method="_on_raise"]
+[connection signal="double_clicked" from="GraphDoubleClickDetect" to="." method="_on_graph_double_click_detect_double_clicked"]
+[connection signal="text_changed" from="MarginContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
