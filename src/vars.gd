@@ -1,9 +1,13 @@
 extends Node
 
 var milangas_path : String
-var current_milanga_dir : String = "Testeo de Proyecto"
+var current_milanga_dir : String = "Proyecto Test"
 
-var milanga_data : Dictionary
+var milanga_info : Dictionary = {
+	"name":"Milanga",
+	"scroll_offset": Vector2(0,0),
+	"zoom":1
+}
 
 func _ready() -> void:
 	## establecer milangas_path si no hay config establecida antes
@@ -20,4 +24,6 @@ func check_milangas_dir() -> void:
 		)
 		if err != OK:
 			print_debug("Error making dir %d"%[err])
-	
+
+func get_current_milanga_dir() -> String:
+	return "%s/%s" % [milangas_path,current_milanga_dir]

@@ -56,6 +56,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Header"
 
+[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
 [connection signal="node_selected" from="." to="." method="_on_node_selected"]
 [connection signal="raise_request" from="." to="GraphDoubleClickDetect" method="_on_raise"]

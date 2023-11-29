@@ -1,6 +1,19 @@
 extends GraphElement
 
+var data : Dictionary = {}
+
 var type : int = 0
+
+
+func get_data() -> Dictionary:
+	data["type"] = type
+	return data
+
+func set_data(dataset:Dictionary) -> void:
+	data = dataset
+	##TODO setear a nodos
+	position_offset = data["position"]
+	$%Label.text = data["text"]
 
 func set_text(text:String) -> void:
 	_on_line_edit_text_changed(text)
@@ -25,9 +38,10 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 	if new_text.is_empty() == true:
 		new_text = "Header"
 	$%Label.text = new_text
+	data["text"] = new_text
 
 func _on_line_edit_text_submitted(_new_text: String) -> void:
 	_on_node_deselected()
 
-
-
+func _on_dragged(_from: Vector2, to: Vector2) -> void:
+	data["position"] = to

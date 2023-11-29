@@ -13,12 +13,25 @@ func _ready() -> void:
 		Vars.milangas_path,Vars.current_milanga_dir
 	]
 	
-	## si no existe json, crearlo
-	if Milangadata.load_data(json_path) == ERR_FILE_NOT_FOUND:
-		Milangadata.save_data(json_path)
-	
 	## cargar data
-	Milangadata.load_data(json_path)
+	var milanga_data = Milangadata.load_data(json_path)
+	
+	## si no existe json, crearlo
+	if milanga_data is int and milanga_data == ERR_FILE_NOT_FOUND:
+		Milangadata.save_data(json_path,$GraphEdit)
+	
+	## recorrer nodos
+	if milanga_data.has("nodes"):
+		for n in milanga_data["nodes"]:
+			var n_data : Dictionary = milanga_data["nodes"][n]
+			$%ContextMenu.add_node(
+				int(n_data["type"]), n_data
+			)
+	
+	$GraphEdit.zoom = milanga_data["data"]["zoom"]
+	$GraphEdit.scroll_offset = $%ContextMenu.string_to_vector2(
+		milanga_data["data"]["scroll_offset"]
+	) 
 
 func _input(event: InputEvent) -> void:
 	
@@ -28,6 +41,7 @@ func _input(event: InputEvent) -> void:
 
 
 func on_files_dropped(files:PackedStringArray) -> void:
+
 	if files.size() != 1:
 		return
 	
@@ -41,8 +55,13 @@ func on_files_dropped(files:PackedStringArray) -> void:
 			files[0].get_file()
 		]
 		
-		var node_data:Dictionary
-		node_data["image_file"] = destination_path.get_file()
+		var node_data:Dictionary = {}
+		
+		node_data = {
+			"position": _get_mouse_pos(),
+			"filename": destination_path.get_file(),
+			"size_rect" : Vector2(56,56)
+		}
 		
 		## TODO si el archivo existe, no reemplazarlo, sino darle un numero consecutivo
 		## copiar archivo
@@ -51,7 +70,7 @@ func on_files_dropped(files:PackedStringArray) -> void:
 		)
 		
 		$%ContextMenu.add_node(
-			2, node_data, _get_mouse_pos()
+			2, node_data
 		)
 
 func _get_mouse_pos() -> Vector2:

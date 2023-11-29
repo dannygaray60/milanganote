@@ -65,8 +65,10 @@ bbcode_enabled = true
 text = "Example text..."
 autowrap_mode = 2
 
+[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
 [connection signal="node_selected" from="." to="." method="_on_node_selected"]
 [connection signal="raise_request" from="." to="GraphDoubleClickDetect" method="_on_raise"]
+[connection signal="resize_request" from="." to="." method="_on_resize_request"]
 [connection signal="double_clicked" from="GraphDoubleClickDetect" to="." method="_on_graph_double_click_detect_double_clicked"]
 [connection signal="text_changed" from="MarginContainer/TextEdit" to="." method="_on_text_edit_text_changed"]

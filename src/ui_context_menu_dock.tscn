@@ -20,7 +20,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="ContextMenu" type="PanelContainer"]
 custom_minimum_size = Vector2(188, 0)
 offset_right = 188.0
 offset_bottom = 86.0
@@ -163,7 +163,7 @@ offset_right = -17.0
 offset_bottom = 88.0
 grow_horizontal = 0
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+[node name="BtnSave" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -203,4 +203,5 @@ flat = true
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnImage" to="." method="add_node" binds= [2, {}]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnUrl" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnUrl" to="." method="add_node" binds= [3, {}]]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/BtnSave" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/BtnSave" to="." method="_on_btn_save_pressed"]

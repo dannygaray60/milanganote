@@ -2,6 +2,7 @@ extends Control
 
 func open_milanga(milanga_name:String) -> void:
 	Vars.current_milanga_dir = milanga_name
+	Vars.milanga_info["data"]["name"] = milanga_name
 	get_tree().change_scene_to_file("res://screens/dock.tscn")
 
 func _on_btn_create_milanga_pressed() -> void:
