@@ -6,12 +6,12 @@ var type : int = 3
 
 func get_data() -> Dictionary:
 	data["type"] = type
+	data["position"] = position_offset
 	return data
 
 func set_data(dataset:Dictionary) -> void:
 	data = dataset
-	##TODO setear a nodos
-	position_offset = data["position"]
+	## setear a nodos
 	_on_line_edit_text_changed(data["url"])
 	$%LineEdit.text = data["url"]
 

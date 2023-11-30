@@ -10,7 +10,7 @@ func load_data(json_path:String) -> Variant:
 		var json_string : String = FileJson.get_line()
 		
 		FileJson.close()
-		
+
 		return JSON.parse_string(json_string)
 
 func save_data(json_path:String,GraphEd:GraphEdit) -> int:
@@ -28,14 +28,17 @@ func save_data(json_path:String,GraphEd:GraphEdit) -> int:
 		json_path, FileAccess.WRITE
 	)
 	
-	var json_data : String = JSON.stringify(
+	var json_string : String = JSON.stringify(
 		{
 			"data":Vars.milanga_info,
 			"nodes":milanga_nodes
 		}
 	)
 	
-	FileJson.store_line(json_data)
+	## da error al cargar datos json embellecidos
+	#var json_beautified : String = JSONBeautifier.beautify_json(json_string)
+	
+	FileJson.store_line(json_string)
 	
 	FileJson.close()
 	

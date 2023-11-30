@@ -6,15 +6,26 @@ var type : int = 1
 
 func get_data() -> Dictionary:
 	data["type"] = type
+	data["position"] = position_offset
 	return data
 
 func set_data(dataset:Dictionary) -> void:
 	data = dataset
-	##TODO setear a nodos
-	position_offset = data["position"]
+	## setear a nodos
 	$%TextEdit.text = data["text"]
 	_on_text_edit_text_changed()
 	size = data["size_rect"]
+	set_font_size(data["size"])
+	set_font_color(data["color"])
+
+func set_font_size(siz:int) -> void:
+	$%RichTextLabel.add_theme_font_size_override("normal_font_size",siz)
+	$%TextEdit.add_theme_font_size_override("font_size",siz)
+	data["size"] = siz
+func set_font_color(clr:String) -> void:
+	$%RichTextLabel.add_theme_color_override("default_color",Color(clr))
+	#$%TextEdit.add_theme_color_override("font_color",Color(clr))
+	data["color"] = clr
 
 func _on_graph_double_click_detect_double_clicked() -> void:
 	$%TextEdit.visible = true

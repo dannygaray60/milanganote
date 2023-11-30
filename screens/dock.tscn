@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://6vywmgtcbygk"]
+[gd_scene load_steps=6 format=3 uid="uid://6vywmgtcbygk"]
 
+[ext_resource type="Theme" uid="uid://c0j2xik4yfh6b" path="res://assets/default_theme.tres" id="1_4j856"]
 [ext_resource type="Script" path="res://screens/dock.gd" id="1_hc2i0"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_gmh6h"]
 [ext_resource type="PackedScene" uid="uid://c3xy3aeanusw3" path="res://src/ui_context_menu_dock.tscn" id="4_k56av"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_4j856")
 script = ExtResource("1_hc2i0")
 
 [node name="GraphEdit" type="GraphEdit" parent="."]
@@ -27,8 +29,87 @@ grow_vertical = 2
 theme_override_colors/grid_minor = Color(1, 1, 1, 0.0352941)
 theme_override_colors/grid_major = Color(1, 1, 1, 0.0352941)
 minimap_enabled = false
+show_grid_buttons = false
 show_minimap_button = false
 show_arrange_button = false
+
+[node name="CtrlToolbar" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_right = 298.0
+offset_bottom = 51.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBxHeader" type="HBoxContainer" parent="CtrlToolbar"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CtrlToolbar/HBxHeader"]
+layout_mode = 2
+text = "Size"
+
+[node name="SpinBox" type="SpinBox" parent="CtrlToolbar/HBxHeader"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="CtrlToolbar/HBxHeader"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CtrlToolbar/HBxHeader"]
+layout_mode = 2
+text = "Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CtrlToolbar/HBxHeader"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+
+[node name="HBxLine" type="HBoxContainer" parent="CtrlToolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CtrlToolbar/HBxLine"]
+layout_mode = 2
+text = "Thickness"
+
+[node name="SpinBox" type="SpinBox" parent="CtrlToolbar/HBxLine"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="CtrlToolbar/HBxLine"]
+layout_mode = 2
+
+[node name="ChckBxArrow" type="CheckBox" parent="CtrlToolbar/HBxLine"]
+layout_mode = 2
+focus_mode = 0
+text = "Is arrow"
+
+[node name="VSeparator" type="VSeparator" parent="CtrlToolbar/HBxLine"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CtrlToolbar/HBxLine"]
+layout_mode = 2
+text = "Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CtrlToolbar/HBxLine"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+color = Color(1, 1, 1, 1)
+edit_alpha = false
 
 [node name="BlackRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -41,7 +122,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.560784)
+color = Color(0, 0, 0, 0.803922)
 
 [node name="Blur" type="ColorRect" parent="BlackRect"]
 material = SubResource("ShaderMaterial_4qqa4")
@@ -55,9 +136,17 @@ mouse_filter = 2
 
 [node name="ContextMenu" parent="." node_paths=PackedStringArray("GraphEditNode") instance=ExtResource("4_k56av")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 154.0
 offset_bottom = 94.0
 GraphEditNode = NodePath("../GraphEdit")
 
+[connection signal="node_deselected" from="GraphEdit" to="." method="_on_graph_edit_node_deselected"]
+[connection signal="node_selected" from="GraphEdit" to="." method="_on_graph_edit_node_selected"]
+[connection signal="value_changed" from="CtrlToolbar/HBxHeader/SpinBox" to="." method="_on_spin_box_header_fontsize_value_changed"]
+[connection signal="color_changed" from="CtrlToolbar/HBxHeader/ColorPickerButton" to="." method="_on_color_picker_button_header_font_color_changed"]
+[connection signal="value_changed" from="CtrlToolbar/HBxLine/SpinBox" to="." method="_on_spin_box_line_thick_value_changed"]
+[connection signal="toggled" from="CtrlToolbar/HBxLine/ChckBxArrow" to="." method="_on_chck_bx_line_arrow_toggled"]
+[connection signal="color_changed" from="CtrlToolbar/HBxLine/ColorPickerButton" to="." method="_on_color_picker_button_line_color_changed"]
 [connection signal="visibility_changed" from="ContextMenu" to="." method="_on_context_menu_visibility_changed"]

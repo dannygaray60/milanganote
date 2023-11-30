@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbl88a2y7yike"]
+[gd_scene load_steps=8 format=3 uid="uid://dbl88a2y7yike"]
 
 [ext_resource type="Script" path="res://screens/start_menu.gd" id="1_btsl4"]
+[ext_resource type="Texture2D" uid="uid://b4j8pr01tx74m" path="res://assets/milanga_icon.svg" id="2_65tuw"]
+[ext_resource type="Texture2D" uid="uid://dmyhekjpollf7" path="res://assets/milanga_icon_rotated.png" id="2_fx2m1"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_hgtvw"]
+[ext_resource type="Texture2D" uid="uid://brpob0bv8h11" path="res://assets/icons/doc.png" id="2_xlb05"]
+[ext_resource type="Texture2D" uid="uid://dcl1rwadcl7lv" path="res://assets/icons/rotate.png" id="5_8q4yo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62cjw"]
+shader = ExtResource("2_hgtvw")
+shader_parameter/lod = 1.614
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -11,17 +20,154 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_btsl4")
 
-[node name="BtnCreateMilanga" type="Button" parent="."]
+[node name="BG" type="ColorRect" parent="."]
+modulate = Color(0.411765, 0.411765, 0.411765, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.317647, 0.392157, 0.470588, 1)
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+modulate = Color(1, 1, 1, 0.160784)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fx2m1")
+stretch_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_65tuw")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MilangaNote 1.0"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnCreateMilanga" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 104.0
-offset_top = 60.0
-offset_right = 428.0
-offset_bottom = 152.0
-text = "Nueva Milanga"
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "NEWMILANGA"
+icon = ExtResource("2_xlb05")
+expand_icon = true
+
+[node name="BtnRepo" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "HELPANDCREDITS"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MILASCREATED"
+horizontal_alignment = 2
+
+[node name="BtnReload" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("5_8q4yo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+follow_focus = true
+
+[node name="HFlowCMilangas" type="HFlowContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="BtnOpenDirMilangas" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "OPENMILASDIR"
+
+[node name="BtnOpenDir" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme_override_font_sizes/font_size = 15
+text = "OPENCONFDIR"
 
 [node name="WindowBlackRect" type="ColorRect" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_62cjw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.529412)
+
+[node name="Black" type="ColorRect" parent="WindowBlackRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +179,7 @@ color = Color(0, 0, 0, 0.529412)
 [node name="WindowNewMilanga" type="Window" parent="."]
 unique_name_in_owner = true
 mode = 4
-title = "Ingrese nombre de Milanga"
+title = "WRITEMILANGANAME"
 initial_position = 1
 size = Vector2i(400, 100)
 visible = false
@@ -56,13 +202,19 @@ size_flags_vertical = 4
 [node name="LnEditMilangaName" type="LineEdit" parent="WindowNewMilanga/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "Nombre de Milanga"
+placeholder_text = "MILANGANAME"
+caret_blink = true
 
 [node name="BtnMilangaCreate" type="Button" parent="WindowNewMilanga/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Crear"
+focus_mode = 0
+text = "CREATE"
 
-[connection signal="pressed" from="BtnCreateMilanga" to="." method="_on_btn_create_milanga_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/BtnCreateMilanga" to="." method="_on_btn_create_milanga_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/BtnRepo" to="." method="_on_btn_repo_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/BtnReload" to="." method="_on_btn_reload_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/BtnOpenDirMilangas" to="." method="_on_btn_open_dir_milangas_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer2/BtnOpenDir" to="." method="_on_btn_open_dir_pressed"]
 [connection signal="about_to_popup" from="WindowNewMilanga" to="." method="_on_window_new_milanga_about_to_popup"]
 [connection signal="close_requested" from="WindowNewMilanga" to="." method="_on_window_new_milanga_close_requested"]
 [connection signal="pressed" from="WindowNewMilanga/MarginContainer/VBoxContainer/BtnMilangaCreate" to="." method="_on_btn_milanga_create_pressed"]

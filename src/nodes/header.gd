@@ -7,13 +7,25 @@ var type : int = 0
 
 func get_data() -> Dictionary:
 	data["type"] = type
+	data["position"] = position_offset
 	return data
 
 func set_data(dataset:Dictionary) -> void:
 	data = dataset
-	##TODO setear a nodos
-	position_offset = data["position"]
+	## setear a nodos
 	$%Label.text = data["text"]
+	$%LineEdit.text = data["text"]
+	set_font_size(data["size"])
+	set_font_color(data["color"])
+
+func set_font_size(siz:int) -> void:
+	$%Label.add_theme_font_size_override("font_size",siz)
+	$%LineEdit.add_theme_font_size_override("font_size",siz)
+	data["size"] = siz
+func set_font_color(clr:String) -> void:
+	$%Label.add_theme_color_override("font_color",Color(clr))
+	$%LineEdit.add_theme_color_override("font_color",Color(clr))
+	data["color"] = clr
 
 func set_text(text:String) -> void:
 	_on_line_edit_text_changed(text)
@@ -39,6 +51,7 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 		new_text = "Header"
 	$%Label.text = new_text
 	data["text"] = new_text
+	$%BorderPanel.size = size
 
 func _on_line_edit_text_submitted(_new_text: String) -> void:
 	_on_node_deselected()

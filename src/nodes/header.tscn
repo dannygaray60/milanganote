@@ -19,6 +19,7 @@ corner_radius_bottom_left = 5
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_v5olv")
 
 [node name="GraphDoubleClickDetect" parent="." instance=ExtResource("3_moaa8")]

@@ -1,10 +1,10 @@
 extends Node
 
 var milangas_path : String
-var current_milanga_dir : String = "Proyecto Test"
+var current_milanga_dir : String = ""
 
 var milanga_info : Dictionary = {
-	"name":"Milanga",
+	"name":"MyMilanga",
 	"scroll_offset": Vector2(0,0),
 	"zoom":1
 }

@@ -11,10 +11,15 @@ func _ready() -> void:
 	
 	Cnf.load(cnf_path)
 	
+	if Cnf.has_section_key("main","lang") == false:
+		Cnf.set_value("main","lang","en")
+	
 	if Cnf.has_section_key("main","milangas_path") == false:
 		Cnf.set_value(
 			"main","milangas_path",
-			OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS) + "/MilangasNotas"
+			OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS) + "/MilangasNotes"
 		)
 	
 	Cnf.save(cnf_path)
+	
+	TranslationServer.set_locale(Cnf.get_value("main","lang","en"))

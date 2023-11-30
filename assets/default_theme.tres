@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c0j2xik4yfh6b"]
+
+[ext_resource type="FontFile" uid="uid://bleh106mqewqo" path="res://assets/fonts/ubuntu_font_family/Ubuntu-R.ttf" id="1_sy6it"]
+
+[resource]
+default_font = ExtResource("1_sy6it")
