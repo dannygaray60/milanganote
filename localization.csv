@@ -1,0 +1,23 @@
+keys,es,en
+NEWMILANGA,Nueva Milanga,New Milanga
+HELPANDCREDITS,Ayuda y Créditos,Help & Credits
+HELP,Ayuda,Help
+MILASCREATED,Milangas Creadas,Created Milangas
+OPENMILASDIR,Abrir carpeta de Milangas,Open Milangas folder
+OPENCONFDIR,Abrir carpeta de configuración,Open Configuration folder
+WRITEMILANGANAME,Ingrese nombre de Milanga,Write Milanga name
+MILANGANAME,Nombre de Milanga,Milanga Name
+CREATE,Crear,Create
+DELETESELECTEDNODE,Eliminar Nodo Seleccionado,Delete selected Node
+DELETEADJFILE,Eliminar imagen adjunta,Delete Attached Image
+DELETENODE,Eliminar Nodo,Delete Node
+ADDNODE,Añadir nodo,Add Node
+FILE,Archivo,File
+SAVE,Guardar,Save
+CLOSEMILANGA,Cerrar Milanga,Close Milanga
+HEADER,Título,Header
+TEXT,Texto,Text
+LINK,Enlace,Link
+COLOR,Color,Color
+ARROW,Flecha,Arrow
+IMAGESADDEDDRAG,Las imágenes se agregan arrastrando y soltando,Images are added by dragging and dropping

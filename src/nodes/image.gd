@@ -1,20 +1,37 @@
-extends GraphNode
+extends GraphElement
 
-##TODO al hacer doble click abrir imagen en pantalla completa
+var data : Dictionary = {}
 
 var type : int = 2
 
 var image_file : String
 
-func _ready() -> void:
-	title = image_file
-	$TextureRect.texture = create_texture_from(
+func get_data() -> Dictionary:
+	data["type"] = type
+	data["position"] = position_offset
+	return data
+
+func set_data(dataset:Dictionary) -> void:
+	data = dataset
+	## setear a nodos
+	#title = data["filename"]
+	$%TextureRect.texture = create_texture_from(
 		"%s/%s/%s" % [
 			Vars.milangas_path,
 			Vars.current_milanga_dir, 
-			image_file
+			data["filename"]
 		]
 	)
+	size = data["size_rect"]
+
+func delete_image() -> void:
+	var path : String = "%s/%s/%s" % [
+		Vars.milangas_path,
+		Vars.current_milanga_dir, 
+		data["filename"]
+	]
+	if FileAccess.file_exists(path) == true:
+		OS.move_to_trash(path)
 
 func create_texture_from(filepath:String) -> Texture:
 
@@ -30,3 +47,27 @@ func create_texture_from(filepath:String) -> Texture:
 
 	#print_debug("Textura creada para: "+filepath)
 	return ImageTexture.create_from_image(img)
+
+func _on_dragged(_from: Vector2, to: Vector2) -> void:
+	data["position"] = to
+
+func _on_resize_request(new_minsize: Vector2) -> void:
+	data["size_rect"] = new_minsize
+
+
+func _on_graph_double_click_detect_double_clicked() -> void:
+	OS.shell_open(
+		"%s/%s/%s" % [
+			Vars.milangas_path,
+			Vars.current_milanga_dir, 
+			data["filename"]
+		]
+	)
+
+
+func _on_node_selected() -> void:
+	$%BorderPanel.visible = true
+
+
+func _on_node_deselected() -> void:
+	$%BorderPanel.visible = false

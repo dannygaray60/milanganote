@@ -1,0 +1,159 @@
+[gd_scene load_steps=5 format=3 uid="uid://bivjg0eef6psx"]
+
+[ext_resource type="Script" path="res://src/nodes/line.gd" id="1_5y0v7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2ha4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.34902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vhww5"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5n285"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[node name="Line" type="GraphElement"]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+script = ExtResource("1_5y0v7")
+
+[node name="BorderPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2ha4")
+
+[node name="MarginContainer" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer"]
+unique_name_in_owner = true
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -2.0
+offset_right = 15.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(15, 2)
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_vhww5")
+
+[node name="CtrlArrow" type="Control" parent="MarginContainer/HSeparator"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_right = -5.0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="HSepArr1" type="HSeparator" parent="MarginContainer/HSeparator/CtrlArrow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_5n285")
+
+[node name="HSepArr2" type="HSeparator" parent="MarginContainer/HSeparator/CtrlArrow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_5n285")
+
+[node name="SliderRotate" type="HSlider" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.5
+offset_top = 1.0
+offset_right = 92.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 360.0
+step = 0.05
+scrollable = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/SliderRotate"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 51.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="BtnPlus" type="Button" parent="MarginContainer/SliderRotate/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="BtnMinus" type="Button" parent="MarginContainer/SliderRotate/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+focus_mode = 0
+text = "+"
+
+[node name="TimerChangeSize" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[connection signal="dragged" from="." to="." method="_on_dragged"]
+[connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
+[connection signal="node_selected" from="." to="." method="_on_node_selected"]
+[connection signal="value_changed" from="MarginContainer/SliderRotate" to="." method="_on_slider_rotate_value_changed"]
+[connection signal="button_down" from="MarginContainer/SliderRotate/HBoxContainer/BtnPlus" to="." method="_on_btn_plus_button_down"]
+[connection signal="button_up" from="MarginContainer/SliderRotate/HBoxContainer/BtnPlus" to="." method="_on_btn_size_action_released"]
+[connection signal="button_down" from="MarginContainer/SliderRotate/HBoxContainer/BtnMinus" to="." method="_on_btn_minus_button_down"]
+[connection signal="button_up" from="MarginContainer/SliderRotate/HBoxContainer/BtnMinus" to="." method="_on_btn_size_action_released"]
+[connection signal="timeout" from="TimerChangeSize" to="." method="_on_timer_change_size_timeout"]

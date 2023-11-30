@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://6vywmgtcbygk"]
+
+[ext_resource type="Script" path="res://screens/dock.gd" id="1_hc2i0"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_gmh6h"]
+[ext_resource type="PackedScene" uid="uid://c3xy3aeanusw3" path="res://src/ui_context_menu_dock.tscn" id="4_k56av"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qqa4"]
+shader = ExtResource("2_gmh6h")
+shader_parameter/lod = 1.416
+
+[node name="Dock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hc2i0")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/grid_minor = Color(1, 1, 1, 0.0352941)
+theme_override_colors/grid_major = Color(1, 1, 1, 0.0352941)
+minimap_enabled = false
+show_grid_buttons = false
+show_minimap_button = false
+show_arrange_button = false
+
+[node name="BlackRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="Blur" type="ColorRect" parent="BlackRect"]
+material = SubResource("ShaderMaterial_4qqa4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ContextMenu" parent="." node_paths=PackedStringArray("GraphEditNode") instance=ExtResource("4_k56av")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 94.0
+GraphEditNode = NodePath("../GraphEdit")
+
+[connection signal="visibility_changed" from="ContextMenu" to="." method="_on_context_menu_visibility_changed"]

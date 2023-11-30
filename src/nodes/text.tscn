@@ -51,6 +51,7 @@ theme_override_constants/margin_bottom = 5
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Example text..."
 placeholder_text = "Example text..."
 wrap_mode = 1
@@ -61,12 +62,15 @@ caret_blink = true
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Example text..."
 autowrap_mode = 2
 
+[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
 [connection signal="node_selected" from="." to="." method="_on_node_selected"]
 [connection signal="raise_request" from="." to="GraphDoubleClickDetect" method="_on_raise"]
+[connection signal="resize_request" from="." to="." method="_on_resize_request"]
 [connection signal="double_clicked" from="GraphDoubleClickDetect" to="." method="_on_graph_double_click_detect_double_clicked"]
 [connection signal="text_changed" from="MarginContainer/TextEdit" to="." method="_on_text_edit_text_changed"]

@@ -39,10 +39,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m2h4p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -52,6 +52,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
 placeholder_text = "https://..."
 expand_to_text_length = true
 
@@ -60,10 +61,12 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("3_vq4o1")
 icon_alignment = 1
 expand_icon = true
 
+[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
 [connection signal="node_selected" from="." to="." method="_on_node_selected"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]

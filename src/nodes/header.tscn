@@ -19,6 +19,7 @@ corner_radius_bottom_left = 5
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_v5olv")
 
 [node name="GraphDoubleClickDetect" parent="." instance=ExtResource("3_moaa8")]
@@ -56,6 +57,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Header"
 
+[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
 [connection signal="node_selected" from="." to="." method="_on_node_selected"]
 [connection signal="raise_request" from="." to="GraphDoubleClickDetect" method="_on_raise"]

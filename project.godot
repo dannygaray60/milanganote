@@ -16,7 +16,9 @@ run/main_scene="res://screens/start_menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="MilangaNote"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+run/low_processor_mode=true
+boot_splash/image="res://assets/milanga_icon.png"
+config/icon="res://assets/milanga_icon.svg"
 
 [autoload]
 
@@ -26,8 +28,9 @@ Milangadata="*res://src/milangadata.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/mode=2
 
 [input]
 
@@ -36,6 +39,10 @@ ui_mouse_right={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization.en.translation", "res://localization.es.translation")
 
 [rendering]
 
