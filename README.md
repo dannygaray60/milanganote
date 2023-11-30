@@ -7,11 +7,11 @@ Puedes crear proyectos en donde puedes añadir `Textos, Encabezados, Imágenes, 
 ![screenshoot](assets/milanga_icon_bg.png)
 
 ## ¿Cómo usar el programa?
-Aquí está un video que muestra el uso del programa:
-[Milanganote Howto](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+Aquí está un video que muestra el uso del programa además de como configurarlo:
+[![Milanganote Howto](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## ¿Donde lo puedo descargar?
-Está disponible como un ejecutable, revisa en [Releases](https://github.com/dannygaray60/milanganote/releases). También puedes descargar este repositorio y abrirlo en GodotEngine 4.2
+Está disponible como un ejecutable, revisa en [Releases](https://github.com/dannygaray60/milanganote/releases). También puedes descargar este repositorio y abrirlo en GodotEngine 4.2 para compilarlo a otra plataforma.
 
 ## Bugs / Problemas conocidos
 Debido a que este programa lo desarrollé en poco tiempo y para uso personal en mi videojuego [Toziuha Night](https://dannygaray60.github.io/tn-oota.html), el código fuente no está a prueba de errores, por lo que no doy garantías de que funcione perfectamente. Por ahora los errores que he podido encontrar son:
@@ -26,3 +26,4 @@ Debido a que este programa lo desarrollé en poco tiempo y para uso personal en 
  
 ## Créditos
 Desarrollado por [Danny Garay](https://dannygaray60.github.io/index.html)
+Íconos proporcionados por [Flaticon.com](https://www.flaticon.com/)
