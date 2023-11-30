@@ -1,2 +1,6 @@
-# milanganota
- Un clon de Milanote hecho en Godot 4.2
+# MilangaNote
+![logo](assets/milanga_icon_bg.png)
+Debido a que no pienso pagar por una subscripción para usar `Milanote`, entonces decidí crear mi propia app clon en [Godot Engine 4.2](https://godotengine.org/)!
+
+## ¿Qué puedo hacer con MilangaNote?
+Puedes crear proyectos
