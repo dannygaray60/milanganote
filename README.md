@@ -4,7 +4,7 @@ Debido a que no pienso pagar por una subscripción para usar `Milanote`, entonce
 ## ¿Qué puedo hacer con MilangaNote?
 Puedes crear proyectos en donde puedes añadir `Textos, Encabezados, Imágenes, flechas, Referencia de colores, Enlaces web` y todo esto con la finalidad de organizar tus ideas. Puede servir para planear historias, diseñar videojuegos etc.
 
-![screenshoot](assets/milanga_icon_bg.png)
+![screenshoot](static/screenshoot.png)
 
 ## ¿Cómo usar el programa?
 Aquí está un video que muestra el uso del programa además de como configurarlo:
