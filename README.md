@@ -8,7 +8,7 @@ Puedes crear proyectos en donde puedes añadir `Textos, Encabezados, Imágenes, 
 
 ## ¿Cómo usar el programa?
 Aquí está un video que muestra el uso del programa además de como configurarlo:
-[![Milanganote Howto](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[![Milanganote Howto](https://img.youtube.com/vi/3mBBm_nUFtU/maxresdefault.jpg)](https://www.youtube.com/watch?v=3mBBm_nUFtU)
 
 ## ¿Donde lo puedo descargar?
 Está disponible como un ejecutable, revisa en [Releases](https://github.com/dannygaray60/milanganote/releases). También puedes descargar este repositorio y abrirlo en GodotEngine 4.2 para compilarlo a otra plataforma.
