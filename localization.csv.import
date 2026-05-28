@@ -15,3 +15,5 @@ dest_files=["res://localization.es.translation", "res://localization.en.translat
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

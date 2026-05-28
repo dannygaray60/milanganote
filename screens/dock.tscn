@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://6vywmgtcbygk"]
+[gd_scene format=3 uid="uid://6vywmgtcbygk"]
 
 [ext_resource type="Theme" uid="uid://c0j2xik4yfh6b" path="res://assets/default_theme.tres" id="1_4j856"]
-[ext_resource type="Script" path="res://screens/dock.gd" id="1_hc2i0"]
-[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_gmh6h"]
+[ext_resource type="Script" uid="uid://cw15muq60gkou" path="res://screens/dock.gd" id="1_hc2i0"]
+[ext_resource type="Shader" uid="uid://cyxf8cobc83x0" path="res://shaders/blur.gdshader" id="2_gmh6h"]
 [ext_resource type="PackedScene" uid="uid://c3xy3aeanusw3" path="res://src/ui_context_menu_dock.tscn" id="4_k56av"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4qqa4"]
 shader = ExtResource("2_gmh6h")
 shader_parameter/lod = 1.416
 
-[node name="Dock" type="Control"]
+[node name="Dock" type="Control" unique_id=62105857]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,21 +19,21 @@ grow_vertical = 2
 theme = ExtResource("1_4j856")
 script = ExtResource("1_hc2i0")
 
-[node name="GraphEdit" type="GraphEdit" parent="."]
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=993104016]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/grid_minor = Color(1, 1, 1, 0.0352941)
 theme_override_colors/grid_major = Color(1, 1, 1, 0.0352941)
+theme_override_colors/grid_minor = Color(1, 1, 1, 0.0352941)
 minimap_enabled = false
 show_grid_buttons = false
 show_minimap_button = false
 show_arrange_button = false
 
-[node name="CtrlToolbar" type="MarginContainer" parent="."]
+[node name="CtrlToolbar" type="MarginContainer" parent="." unique_id=2039492978]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -49,69 +49,69 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBxHeader" type="HBoxContainer" parent="CtrlToolbar"]
+[node name="HBxHeader" type="HBoxContainer" parent="CtrlToolbar" unique_id=2112016025]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CtrlToolbar/HBxHeader"]
+[node name="Label" type="Label" parent="CtrlToolbar/HBxHeader" unique_id=700852541]
 layout_mode = 2
 text = "Size"
 
-[node name="SpinBox" type="SpinBox" parent="CtrlToolbar/HBxHeader"]
+[node name="SpinBox" type="SpinBox" parent="CtrlToolbar/HBxHeader" unique_id=1509084084]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="CtrlToolbar/HBxHeader"]
+[node name="VSeparator" type="VSeparator" parent="CtrlToolbar/HBxHeader" unique_id=1569738885]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CtrlToolbar/HBxHeader"]
+[node name="Label2" type="Label" parent="CtrlToolbar/HBxHeader" unique_id=121972545]
 layout_mode = 2
 text = "Color"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="CtrlToolbar/HBxHeader"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CtrlToolbar/HBxHeader" unique_id=1538763050]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 focus_mode = 0
 color = Color(1, 1, 1, 1)
 edit_alpha = false
 
-[node name="HBxLine" type="HBoxContainer" parent="CtrlToolbar"]
+[node name="HBxLine" type="HBoxContainer" parent="CtrlToolbar" unique_id=2012864330]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CtrlToolbar/HBxLine"]
+[node name="Label" type="Label" parent="CtrlToolbar/HBxLine" unique_id=465205342]
 layout_mode = 2
 text = "Thickness"
 
-[node name="SpinBox" type="SpinBox" parent="CtrlToolbar/HBxLine"]
+[node name="SpinBox" type="SpinBox" parent="CtrlToolbar/HBxLine" unique_id=559590707]
 layout_mode = 2
 alignment = 1
 
-[node name="VSeparator2" type="VSeparator" parent="CtrlToolbar/HBxLine"]
+[node name="VSeparator2" type="VSeparator" parent="CtrlToolbar/HBxLine" unique_id=909158054]
 layout_mode = 2
 
-[node name="ChckBxArrow" type="CheckBox" parent="CtrlToolbar/HBxLine"]
+[node name="ChckBxArrow" type="CheckBox" parent="CtrlToolbar/HBxLine" unique_id=1906524277]
 layout_mode = 2
 focus_mode = 0
 text = "Is arrow"
 
-[node name="VSeparator" type="VSeparator" parent="CtrlToolbar/HBxLine"]
+[node name="VSeparator" type="VSeparator" parent="CtrlToolbar/HBxLine" unique_id=321321119]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CtrlToolbar/HBxLine"]
+[node name="Label2" type="Label" parent="CtrlToolbar/HBxLine" unique_id=959388367]
 layout_mode = 2
 text = "Color"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="CtrlToolbar/HBxLine"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CtrlToolbar/HBxLine" unique_id=1013180157]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 focus_mode = 0
 color = Color(1, 1, 1, 1)
 edit_alpha = false
 
-[node name="BlackRect" type="ColorRect" parent="."]
+[node name="BlackRect" type="ColorRect" parent="." unique_id=1289838261]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -124,7 +124,7 @@ focus_mode = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.803922)
 
-[node name="Blur" type="ColorRect" parent="BlackRect"]
+[node name="Blur" type="ColorRect" parent="BlackRect" unique_id=1571524237]
 material = SubResource("ShaderMaterial_4qqa4")
 layout_mode = 1
 anchors_preset = 15
@@ -134,7 +134,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ContextMenu" parent="." node_paths=PackedStringArray("GraphEditNode") instance=ExtResource("4_k56av")]
+[node name="ContextMenu" parent="." unique_id=1072730892 node_paths=PackedStringArray("GraphEditNode") instance=ExtResource("4_k56av")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0

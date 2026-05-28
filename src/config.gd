@@ -20,6 +20,9 @@ func _ready() -> void:
 			OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS) + "/MilangasNotes"
 		)
 	
+	if Cnf.has_section_key("main","other_milangas") == false:
+		Cnf.set_value("main","other_milangas",[])
+	
 	Cnf.save(cnf_path)
 	
 	TranslationServer.set_locale(Cnf.get_value("main","lang","en"))

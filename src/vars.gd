@@ -25,5 +25,8 @@ func check_milangas_dir() -> void:
 		if err != OK:
 			print_debug("Error making dir %d"%[err])
 
+func get_other_milangas() -> Array:
+	return Config.Cnf.get_value("main","other_milangas")
+
 func get_current_milanga_dir() -> String:
 	return "%s/%s" % [milangas_path,current_milanga_dir]

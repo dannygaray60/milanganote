@@ -4,17 +4,27 @@ func _ready() -> void:
 	load_milangas_buttons()
 
 func load_milangas_buttons() -> void:
+	
+	var extra_paths: Array = Vars.get_other_milangas()
+	
 	for n in $%HFlowCMilangas.get_children():
 		n.queue_free()
-	## cargar accesos directos a milangas creadas para abrirlas
-	for dir in DirAccess.get_directories_at(Vars.milangas_path):
-		if FileAccess.file_exists(Vars.milangas_path+"/"+dir+"/data.json"):
-			var Btn := Button.new()
-			Btn.text = dir
-			Btn.add_theme_font_size_override("font_size",30)
-			Btn.pressed.connect(open_milanga.bind(dir))
-			Btn.focus_mode = Control.FOCUS_NONE
-			$%HFlowCMilangas.add_child(Btn)
+
+	var dirs: Array = []
+	for d in DirAccess.get_directories_at(Vars.milangas_path):
+		dirs.append(Vars.milangas_path + "/" + d)
+	dirs.append_array(extra_paths)
+
+	for path in dirs:
+		if not FileAccess.file_exists(path + "/data.json"):
+			continue
+		var milanga_data = Milangadata.load_data(path+"/data.json")
+		var Btn := Button.new()
+		Btn.text = milanga_data["data"]["name"]
+		Btn.add_theme_font_size_override("font_size", 30)
+		Btn.pressed.connect(open_milanga.bind(path.get_file()))
+		Btn.focus_mode = Control.FOCUS_NONE
+		$%HFlowCMilangas.add_child(Btn)
 
 func open_milanga(milanga_name:String) -> void:
 	milanga_name = milanga_name.strip_edges()
