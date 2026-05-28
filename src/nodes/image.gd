@@ -16,18 +16,14 @@ func set_data(dataset:Dictionary) -> void:
 	## setear a nodos
 	#title = data["filename"]
 	$%TextureRect.texture = create_texture_from(
-		"%s/%s/%s" % [
-			Vars.milangas_path,
-			Vars.current_milanga_dir, 
+		Vars.get_opened_milanga_dir()+"/%s" % [
 			data["filename"]
 		]
 	)
 	size = data["size_rect"]
 
 func delete_image() -> void:
-	var path : String = "%s/%s/%s" % [
-		Vars.milangas_path,
-		Vars.current_milanga_dir, 
+	var path : String = Vars.get_opened_milanga_dir()+"/%s" % [
 		data["filename"]
 	]
 	if FileAccess.file_exists(path) == true:
@@ -57,9 +53,7 @@ func _on_resize_request(new_minsize: Vector2) -> void:
 
 func _on_graph_double_click_detect_double_clicked() -> void:
 	OS.shell_open(
-		"%s/%s/%s" % [
-			Vars.milangas_path,
-			Vars.current_milanga_dir, 
+		Vars.get_opened_milanga_dir()+"/%s" % [
 			data["filename"]
 		]
 	)

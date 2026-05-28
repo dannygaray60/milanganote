@@ -154,7 +154,7 @@ func _on_btn_delete_pressed() -> void:
 
 func _on_btn_save_pressed() -> void:
 	Milangadata.save_data(
-		Vars.get_current_milanga_dir() + "/data.json", GraphEditNode
+		Vars.get_opened_milanga_dir() + "/data.json", GraphEditNode
 	)
 
 
@@ -166,3 +166,7 @@ func _on_btn_help_pressed() -> void:
 	OS.shell_open(
 		"https://github.com/dannygaray60/milanganote"
 	)
+
+
+func _on_btn_open_dir_pressed() -> void:
+	OS.shell_open(Vars.get_opened_milanga_dir())

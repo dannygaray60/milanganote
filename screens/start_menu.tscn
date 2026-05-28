@@ -74,7 +74,7 @@ expand_mode = 5
 [node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer" unique_id=1763360601]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "MilangaNote 1.0"
+text = "MilangaNote 1.1"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer2/HBoxContainer/VBoxContainer" unique_id=447244847]

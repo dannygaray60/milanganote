@@ -11,10 +11,8 @@ func _ready() -> void:
 	
 	get_viewport().files_dropped.connect(on_files_dropped)
 	
-	json_path = "%s/%s/data.json" % [
-		Vars.milangas_path,Vars.current_milanga_dir
-	]
-	
+	json_path = Vars.get_opened_milanga_dir()+"/data.json"
+
 	## cargar data
 	var milanga_data = Milangadata.load_data(json_path)
 	
@@ -55,17 +53,13 @@ func on_files_dropped(files:PackedStringArray) -> void:
 		"jpg","jpeg","png"
 	]:
 		
-		var destination_path : String = "%s/%s/%s" % [
-			Vars.milangas_path,
-			Vars.current_milanga_dir, 
+		var destination_path : String = Vars.get_opened_milanga_dir()+"/%s" % [
 			files[0].get_file()
 		]
 		
 		## si el archivo ya existe añadir un numero al nombre de archivo
 		if FileAccess.file_exists(destination_path) == true:
-			destination_path = "%s/%s/%s_%d.%s" % [
-				Vars.milangas_path,
-				Vars.current_milanga_dir, 
+			destination_path = Vars.get_opened_milanga_dir()+"/%s_%d.%s" % [
 				files[0].get_file().get_slice(".",0),
 				int(Time.get_unix_time_from_system()),
 				files[0].get_extension()

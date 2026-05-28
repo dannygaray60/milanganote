@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3xy3aeanusw3"]
+[gd_scene format=3 uid="uid://c3xy3aeanusw3"]
 
 [ext_resource type="Texture2D" uid="uid://bdxpe30765n8q" path="res://assets/icons/heading.png" id="1_wgtkh"]
-[ext_resource type="Script" path="res://src/ui_context_menu_dock.gd" id="1_yq1jj"]
+[ext_resource type="Script" uid="uid://dkbox8clhrvgs" path="res://src/ui_context_menu_dock.gd" id="1_yq1jj"]
 [ext_resource type="Texture2D" uid="uid://ctnwb440bu3h7" path="res://assets/icons/speech_bubble.png" id="2_0fjr5"]
 [ext_resource type="Texture2D" uid="uid://dm76y6f7cqf4p" path="res://assets/icons/arrow_right.png" id="2_v0tm2"]
 [ext_resource type="Texture2D" uid="uid://f456p2o4wdps" path="res://assets/icons/save.png" id="4_p1xlo"]
@@ -21,7 +21,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="ContextMenu" type="PanelContainer"]
+[node name="ContextMenu" type="PanelContainer" unique_id=485284798]
 custom_minimum_size = Vector2(188, 0)
 offset_right = 188.0
 offset_bottom = 86.0
@@ -30,17 +30,17 @@ size_flags_vertical = 0
 focus_mode = 2
 script = ExtResource("1_yq1jj")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=497566035]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=451564214]
 layout_mode = 2
 
-[node name="BtnDel" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BtnDel" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1878808749]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -49,24 +49,24 @@ disabled = true
 text = "DELETENODE"
 flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BtnDel"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BtnDel" unique_id=222073905]
 layout_mode = 1
 offset_top = -94.0
 offset_right = 288.0
 offset_bottom = -13.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mo7il")
 
-[node name="VBxDeleteNode" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer"]
+[node name="VBxDeleteNode" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer" unique_id=1053923380]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="BtnDelete" type="Button" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode"]
+[node name="BtnDelete" type="Button" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode" unique_id=1042996178]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "DELETESELECTEDNODE"
 
-[node name="ChkDelFile" type="CheckBox" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode"]
+[node name="ChkDelFile" type="CheckBox" parent="MarginContainer/VBoxContainer/BtnDel/PanelContainer/VBxDeleteNode" unique_id=1639116664]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -75,10 +75,10 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.596078)
 text = "DELETEADJFILE"
 alignment = 2
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=10911669]
 layout_mode = 2
 
-[node name="BtnAddNode" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BtnAddNode" type="Button" parent="MarginContainer/VBoxContainer" unique_id=495017245]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
@@ -90,7 +90,7 @@ alignment = 2
 icon_alignment = 2
 expand_icon = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnAddNode"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnAddNode" unique_id=1812110530]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -100,7 +100,7 @@ offset_right = 176.0
 offset_bottom = 170.0
 grow_horizontal = 0
 
-[node name="BtnHeader" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="BtnHeader" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1986659730]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -108,7 +108,7 @@ text = "HEADER"
 icon = ExtResource("1_wgtkh")
 expand_icon = true
 
-[node name="BtnText" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="BtnText" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1343713201]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -116,7 +116,7 @@ text = "TEXT"
 icon = ExtResource("2_0fjr5")
 expand_icon = true
 
-[node name="BtnImage" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="BtnImage" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1536500033]
 visible = false
 layout_mode = 2
 focus_mode = 0
@@ -125,7 +125,7 @@ text = "Imagen"
 icon = ExtResource("5_11v6x")
 expand_icon = true
 
-[node name="BtnUrl" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="BtnUrl" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1154737409]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -133,7 +133,7 @@ text = "LINK"
 icon = ExtResource("5_3yhpr")
 expand_icon = true
 
-[node name="BtnColor" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="BtnColor" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1732412141]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -141,7 +141,7 @@ text = "COLOR"
 icon = ExtResource("7_r36xy")
 expand_icon = true
 
-[node name="BtnLine" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="BtnLine" type="Button" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1948674455]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -149,7 +149,7 @@ text = "ARROW"
 icon = ExtResource("5_1v6ac")
 expand_icon = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2" unique_id=1063845956]
 modulate = Color(1, 1, 1, 0.572549)
 layout_mode = 2
 theme_override_constants/line_spacing = -2
@@ -158,7 +158,7 @@ text = "IMAGESADDEDDRAG"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="BtnFile" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BtnFile" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1331886777]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
@@ -169,7 +169,7 @@ flat = true
 alignment = 0
 expand_icon = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnFile"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BtnFile" unique_id=8632237]
 layout_mode = 1
 anchors_preset = -1
 offset_left = -189.0
@@ -178,7 +178,14 @@ offset_right = -17.0
 offset_bottom = 88.0
 grow_horizontal = 0
 
-[node name="BtnSave" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+[node name="BtnOpenDir" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2" unique_id=240488378]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 15
+text = "OPENMILANGADIR"
+expand_icon = true
+
+[node name="BtnSave" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2" unique_id=588083228]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 25
@@ -186,20 +193,20 @@ text = "SAVE"
 icon = ExtResource("4_p1xlo")
 expand_icon = true
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2" unique_id=838721163]
 layout_mode = 2
 
-[node name="BtnClose" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2"]
+[node name="BtnClose" type="Button" parent="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2" unique_id=1680788291]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 15
 text = "CLOSEMILANGA"
 expand_icon = true
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1819271655]
 layout_mode = 2
 
-[node name="BtnHelp" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BtnHelp" type="Button" parent="MarginContainer/VBoxContainer" unique_id=490410855]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
@@ -221,6 +228,7 @@ flat = true
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnColor" to="." method="add_node" binds= [4, {}]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnLine" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnAddNode/VBoxContainer2/BtnLine" to="." method="add_node" binds= [5, {}]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/BtnOpenDir" to="." method="_on_btn_open_dir_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/BtnSave" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/BtnSave" to="." method="_on_btn_save_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BtnFile/VBoxContainer2/BtnClose" to="." method="_on_btn_close_pressed"]

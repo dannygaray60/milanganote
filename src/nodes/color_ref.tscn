@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://4803ujb4j5ip"]
+[gd_scene format=3 uid="uid://4803ujb4j5ip"]
 
-[ext_resource type="Script" path="res://src/nodes/color_ref.gd" id="1_5ybrp"]
+[ext_resource type="Script" uid="uid://d0s30at3qhbr0" path="res://src/nodes/color_ref.gd" id="1_5ybrp"]
 [ext_resource type="Texture2D" uid="uid://618y8vylwaj5" path="res://assets/icons/copy.png" id="2_y2ssw"]
 [ext_resource type="PackedScene" uid="uid://clpd6j7qnvl3t" path="res://src/graph_double_click_detect.tscn" id="3_x60gf"]
 
@@ -16,46 +16,46 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="ColorRef" type="GraphElement"]
+[node name="ColorRef" type="GraphElement" unique_id=1481266369]
 custom_minimum_size = Vector2(177, 120)
 offset_right = 177.0
 offset_bottom = 120.0
 script = ExtResource("1_5ybrp")
 
-[node name="BorderPanel" type="Panel" parent="."]
+[node name="BorderPanel" type="Panel" parent="." unique_id=1601963408]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sl2qq")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1098692236]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=120501640]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=330370865]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 31)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=351150201]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=498521205]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "#ffffff"
 placeholder_text = "#ffffff"
 
-[node name="BtnCopyHex" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="BtnCopyHex" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=193081357]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 focus_mode = 0
@@ -63,7 +63,7 @@ icon = ExtResource("2_y2ssw")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ColorPicker" type="ColorPicker" parent="MarginContainer/VBoxContainer"]
+[node name="ColorPicker" type="ColorPicker" parent="MarginContainer/VBoxContainer" unique_id=1048036722]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -75,7 +75,7 @@ sliders_visible = false
 hex_visible = false
 presets_visible = false
 
-[node name="GraphDoubleClickDetect" parent="." instance=ExtResource("3_x60gf")]
+[node name="GraphDoubleClickDetect" parent="." unique_id=79587179 instance=ExtResource("3_x60gf")]
 
 [connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]

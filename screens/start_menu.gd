@@ -22,18 +22,21 @@ func load_milangas_buttons() -> void:
 		var Btn := Button.new()
 		Btn.text = milanga_data["data"]["name"]
 		Btn.add_theme_font_size_override("font_size", 30)
-		Btn.pressed.connect(open_milanga.bind(path.get_file()))
+		Btn.pressed.connect(open_milanga.bind(path))
 		Btn.focus_mode = Control.FOCUS_NONE
 		$%HFlowCMilangas.add_child(Btn)
 
 func open_milanga(milanga_name:String) -> void:
 	milanga_name = milanga_name.strip_edges()
+	
 	if (
-		milanga_name.is_empty() == false
-		and milanga_name.is_valid_filename()
+		milanga_name.is_absolute_path()
+		or milanga_name.is_valid_filename()
 	):
+		
 		Vars.current_milanga_dir = milanga_name
-		Vars.milanga_info["name"] = milanga_name
+		var milanga_data = Milangadata.load_data(Vars.get_opened_milanga_dir()+"/data.json")
+		Vars.milanga_info["name"] = milanga_data["data"]["name"]
 		get_tree().change_scene_to_file("res://screens/dock.tscn")
 
 func _on_btn_create_milanga_pressed() -> void:

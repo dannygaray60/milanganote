@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxdi58w80ll5n"]
+[gd_scene format=3 uid="uid://bxdi58w80ll5n"]
 
-[ext_resource type="Script" path="res://src/nodes/image.gd" id="1_33h04"]
+[ext_resource type="Script" uid="uid://brbqccexkgd7s" path="res://src/nodes/image.gd" id="1_33h04"]
 [ext_resource type="Texture2D" uid="uid://bp7kjvywgc1yo" path="res://assets/icons/triangle.png" id="2_uel76"]
 [ext_resource type="PackedScene" uid="uid://clpd6j7qnvl3t" path="res://src/graph_double_click_detect.tscn" id="3_5vl6k"]
 
@@ -16,21 +16,21 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Image" type="GraphElement"]
-clip_contents = true
+[node name="Image" type="GraphElement" unique_id=1780741317]
 custom_minimum_size = Vector2(150, 150)
+clip_contents = true
 offset_right = 148.0
 offset_bottom = 147.0
 resizable = true
 script = ExtResource("1_33h04")
 
-[node name="BorderPanel" type="Panel" parent="."]
+[node name="BorderPanel" type="Panel" parent="." unique_id=787426585]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d0nc1")
 
-[node name="ResizeIcon" type="TextureRect" parent="."]
+[node name="ResizeIcon" type="TextureRect" parent="." unique_id=677427704]
 modulate = Color(1, 1, 1, 0.490196)
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -39,21 +39,21 @@ size_flags_vertical = 8
 texture = ExtResource("2_uel76")
 expand_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=747799990]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=276263924]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 expand_mode = 3
 stretch_mode = 5
 
-[node name="GraphDoubleClickDetect" parent="." instance=ExtResource("3_5vl6k")]
+[node name="GraphDoubleClickDetect" parent="." unique_id=1809767753 instance=ExtResource("3_5vl6k")]
 
 [connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="node_deselected" from="." to="." method="_on_node_deselected"]
