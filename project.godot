@@ -50,4 +50,4 @@ locale/translations=PackedStringArray("res://localization.en.translation", "res:
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
