@@ -44,6 +44,12 @@ ui_mouse_right={
 ]
 }
 
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
+pointing/android/enable_pan_and_scale_gestures=true
+pointing/emulate_touch_from_mouse=true
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://localization.en.translation", "res://localization.es.translation")
@@ -51,3 +57,4 @@ locale/translations=PackedStringArray("res://localization.en.translation", "res:
 [rendering]
 
 renderer/rendering_method="mobile"
+anti_aliasing/quality/msaa_2d=3

@@ -90,20 +90,26 @@ func _on_context_menu_visibility_changed() -> void:
 	release_focus()
 
 func _on_graph_edit_node_selected(node: Node) -> void:
+	if CurrentNodeSelected != null:
+		$%HBxHeader.get_node("SpinBox").release_focus()
+		$%HBxLine.get_node("SpinBox").release_focus()
+	
 	CurrentNodeSelected = node
 	## al seleccionar un nodo, se muestra un toolbar con opciones extras, como cambiar los ajsutes del texto del nodo por ejemplo
 	##dependiendo del type
 	
 	##BUG el contenedor padre de header no se achica si el texto se reduce en longitud (aunque se arregla en reinicio)
-	##BUG al cambiar el size y luego seleccionar otro header, ese header recibe el size...
 	
 	match CurrentNodeSelected.type:
 		0,1:
-			$%HBxHeader.get_node("SpinBox").value = CurrentNodeSelected.data["size"]
+			## refresca el SpinBox
+			## sin disparar "value_changed", así el refresco nunca puede
+			## reaplicarse por error al nodo equivocado.
+			$%HBxHeader.get_node("SpinBox").set_value_no_signal(CurrentNodeSelected.data["size"])
 			$%HBxHeader.get_node("ColorPickerButton").color = Color(CurrentNodeSelected.data["color"])
 			$%HBxHeader.visible = true
 		5:
-			$%HBxLine.get_node("SpinBox").value = CurrentNodeSelected.data["width"]
+			$%HBxLine.get_node("SpinBox").set_value_no_signal(CurrentNodeSelected.data["width"])
 			$%HBxLine.get_node("ChckBxArrow").button_pressed = CurrentNodeSelected.data["is_arrow"]
 			$%HBxLine.get_node("ColorPickerButton").color = CurrentNodeSelected.data["color"]
 			
